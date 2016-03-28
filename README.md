@@ -1,0 +1,1 @@
+Proyecto de Aula utilizando Rails y como motor de bases de datos Sqlite3
