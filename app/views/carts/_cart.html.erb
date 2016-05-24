@@ -1,0 +1,10 @@
+<% if  @cart %>
+<p>
+  <% if  @cart.empty? %>
+    Carro vacío
+    <% else %>
+    <%= link_to "Tienes
+     #{pluralize @cart.count, "producto"} ", cart_path %>
+  <% end %>
+</p>
+<% end %>

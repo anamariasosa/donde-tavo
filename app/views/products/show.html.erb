@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<%= @e %>
 <p>
 
   <%= image_tag @product.image.thumb %>
@@ -15,20 +15,27 @@
 
 <p>
   <strong>Quantity:</strong>
-  <%= @product.quantity %>
+  <%= @product.quantity  %>
 </p>
 
+<% if @product.category %>
 <p>
   <strong>Category:</strong>
-  <%= @product.category.name %>
+    <%= @product.category.name  %>
 </p>
-
+<% end %>
+<% if @product.supplier %>
 <p>
   <strong>Supplier:</strong>
-  <%= @product.supplier.name %>
+  <%= @product.supplier.name  %>
 </p>
+<% end %>
+
 
 
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
+<% if @product.quantity > 0 %>
+  <%= link_to 'Add to cart', add_cart_path, method: :post %>
+<% end %>

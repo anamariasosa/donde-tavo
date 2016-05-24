@@ -23,13 +23,14 @@
     <%= f.label :image %><br>
     <%= f.file_field :image %>
   </div>
+
   <div class="field">
     <%= f.label :quantity %><br>
     <%= f.number_field :quantity %>
   </div>
   <div class="field">
-    <%= f.label :category_id %>
-    <%= f.select :category_id, Category.all.map { |c| [ c.name, c.id ]} %>
+      <%= f.label :category_id %>
+      <%= f.select :category_id, Category.all.map { |c| [ c.name, c.id ]} %>
   </div>
   <div class="field">
     <%= f.label :supplier_id %>

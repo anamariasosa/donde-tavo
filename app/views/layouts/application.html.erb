@@ -7,7 +7,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<%= content_tag :div, notice, id:"notice" %>
+<%= content_tag :div, alert %>
+<%= render "carts/cart" %>
 <%= yield %>
 
 </body>
