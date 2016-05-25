@@ -19,3 +19,12 @@ Category.create(name: 'Mecato')
 Supplier.create(name: "Postobon", address: "Cra 80 b", phone_number: '23243243')
 Supplier.create(name: "Margarita", address: "Cra 20 b", phone_number: '34234')
 Supplier.create(name: "Colombina", address: "Cra 10 b", phone_number: '234334234')
+for i in 0..5
+Product.create(name: "Papitas #{i}",
+              price: rand(1000..1000000),
+              image: File.open(File.join(Rails.root, 'public/limon.jpg')),
+              category_id: rand(2..7),
+              supplier_id: rand(2..4),
+              quantity: i)
+puts "Create produt #{i}"
+end
