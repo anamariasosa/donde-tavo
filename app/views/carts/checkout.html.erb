@@ -1,0 +1,28 @@
+<h1>Checkout</h1>
+<p>Es es tu orden:</p>
+<table>
+  <thead>
+    <th>Nombre</th>
+    <th>Cantidad</th>
+    <th>Valor</th>
+  </thead>
+  <tbody>
+    <% @cart.items.each do |item| %>
+    <tr>
+      <td>
+        <%= item.product.name %>
+      </td>
+      <td>
+        <%= item.quantity %>
+      </td>
+      <td>
+        <%= number_to_currency(item.product.price, precision:0)%>
+      </td>
+
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<p>
+  <b>Total a pagar:</b> <%= number_to_currency(@cart.total_price, precision:0) %>
+</p>

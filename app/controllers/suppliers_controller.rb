@@ -1,5 +1,6 @@
 class SuppliersController < ApplicationController
   before_action :set_supplier, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_admin!, only: [ :new, :edit, :update, :create, :destroy, :show, :index ]
 
   # GET /suppliers
   # GET /suppliers.json
@@ -10,6 +11,7 @@ class SuppliersController < ApplicationController
   # GET /suppliers/1
   # GET /suppliers/1.json
   def show
+    @products = @supplier.products
   end
 
   # GET /suppliers/new

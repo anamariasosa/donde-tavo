@@ -1,5 +1,6 @@
 class AddSupplierToProducts < ActiveRecord::Migration
   def change
-    add_reference :products, :supplier, index: true, foreign_key: true
+    supplier = Supplier.create! name: "Sin Proveedor"
+    add_reference :products, :supplier, index: true, default: supplier.id
   end
 end

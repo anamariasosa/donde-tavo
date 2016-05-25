@@ -18,23 +18,21 @@
   <%= @product.quantity  %>
 </p>
 
-<% if @product.category %>
 <p>
   <strong>Category:</strong>
-    <%= @product.category.name  %>
+  <%= link_to @product.category.name, @product.category %>
 </p>
-<% end %>
-<% if @product.supplier %>
+<% if current_user && current_user.admin? %>
 <p>
   <strong>Supplier:</strong>
-  <%= @product.supplier.name  %>
+  <%= link_to @product.supplier.name, @product.supplier %>
 </p>
 <% end %>
 
 
-
-
+<% if current_user && current_user.admin? %>
 <%= link_to 'Edit', edit_product_path(@product) %> |
+<% end %>
 <%= link_to 'Back', products_path %>
 <% if @product.quantity > 0 %>
   <%= link_to 'Add to cart', add_cart_path, method: :post %>

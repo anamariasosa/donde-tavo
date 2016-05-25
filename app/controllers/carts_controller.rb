@@ -9,13 +9,16 @@ class CartsController < ApplicationController
     new_quantity = product.quantity  - 1
     if new_quantity >= 0
       product.update_attribute(:quantity, new_quantity)
+      redirect_to :back, notice: "Added #{product.name} to cart."
     end
-    redirect_to :back, notice: "Added #{product.name} to cart."
 
   end
 
   def show
 
+  end
+
+  def checkout
   end
 
 end

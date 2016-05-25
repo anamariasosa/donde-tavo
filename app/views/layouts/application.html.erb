@@ -9,7 +9,20 @@
 <body>
 <%= content_tag :div, notice, id:"notice" %>
 <%= content_tag :div, alert %>
+<ul>
+<% @categories.each do |category| %>
+  <li>
+    <%= link_to category.name, category %>
+  </li>
+<% end %>
+</ul>
 <%= render "carts/cart" %>
+<% if user_signed_in? %>
+  Logged in as <%= current_user.email %>.
+  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+<% else %>
+  <%= link_to "Login", new_user_session_path, class: "navbar-link" %>
+<% end %>
 <%= yield %>
 
 </body>
