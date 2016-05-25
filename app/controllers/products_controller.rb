@@ -6,6 +6,16 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = Product.all
+    @histories = History.all
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render :pdf => 'historial',
+        :template => 'products/index.pdf.erb',
+        :layout => 'pdf.html.erb',
+        :show_as_html => params[:debug].present?
+      end
+    end
   end
 
   # GET /products/1
@@ -55,6 +65,7 @@ class ProductsController < ApplicationController
   # DELETE /products/1
   # DELETE /products/1.json
   def destroy
+    History.create(product_name: @product.name , supplier_name: @product.supplier.name, supplier_phone: @product.supplier.phone_number)
     @product.destroy
     respond_to do |format|
       format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }

@@ -29,6 +29,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'puma'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
