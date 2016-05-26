@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   end
 
   def find_categories
-    @categories = Category.all
+    @categories = Category.order(:name)
     @count = Product.count
   end
   def find_suppliers

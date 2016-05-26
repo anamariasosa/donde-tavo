@@ -11,19 +11,20 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="form-group">
+    <label class="control-label">Nombre:</label>
+    <%= f.text_field :name,class:"form-control input-lg" %>
   </div>
-  <div class="field">
-    <%= f.label :address %><br>
-    <%= f.text_field :address %>
+  <div class="form-group">
+    <label class="control-label">Dirección:</label>
+    <%= f.text_field :address,class:"form-control input-lg" %>
   </div>
-  <div class="field">
-    <%= f.label :phone_number %><br>
-    <%= f.text_field :phone_number %>
+  <div class="form-group">
+    <label class="control-label">Teléfono:</label>
+    <%= f.text_field :phone_number,class:"form-control input-lg" %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="action text-right">
+    <%= f.submit "Guardar", class:"btn btn-primary btn-block btn-lg" %>
   </div>
 <% end %>
+<br>

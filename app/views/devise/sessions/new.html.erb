@@ -2,7 +2,7 @@
       <h1>Iniciar Sesión</h1>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-      <div class="form-group">
+        <div class="form-group">
           <label class="control-label" for="email">Correo electrónico:</label>
           <%= f.email_field :email, autofocus: true, class:"form-control input-lg" , id:"email"%>
         </div>
@@ -18,5 +18,7 @@
         </div>
       <br>
       <%= render "devise/shared/links" %>
+
+
 </div>
 <% end %>
