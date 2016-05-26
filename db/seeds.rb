@@ -1,6 +1,5 @@
 # This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
+# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup) #"
 # Examples:
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
@@ -9,22 +8,52 @@ Product.destroy_all
 Category.destroy_all
 Supplier.destroy_all
 User.destroy_all
-User.create(email:'admin@gmail.com', password: '12345678', admin: true)
-Category.create(name: 'Helados')
-Category.create(name: 'Bebidas')
+User.create(email:'admin@test.com', password: '12345678', admin: true)
 Category.create(name: 'Almuerzos')
+Category.create(name: 'Bebidas')
 Category.create(name: 'Desayunos')
+Category.create(name: 'Dulces')
 Category.create(name: 'Frutas')
+Category.create(name: 'Helados')
+Category.create(name: 'Jairo')
 Category.create(name: 'Mecato')
-Supplier.create(name: "Postobon", address: "Cra 80 b", phone_number: '23243243')
-Supplier.create(name: "Margarita", address: "Cra 20 b", phone_number: '34234')
-Supplier.create(name: "Colombina", address: "Cra 10 b", phone_number: '234334234')
-for i in 0..5
-Product.create(name: "Papitas #{i}",
-              price: rand(1000..1000000),
-              image: File.open(File.join(Rails.root, 'public/limon.jpg')),
-              category_id: rand(2..7),
-              supplier_id: rand(2..4),
-              quantity: i)
-puts "Create produt #{i}"
-end
+Supplier.create(name: "Coca-cola", address:	"Cra 25 a #40-122", phone_number: "2212299")
+Supplier.create(name: "Crem Helado", address:	"Transversal 2 #89-09", phone_number: "8887799")
+Supplier.create(name: "Del Pozo Fruteria", address:	"Calle 76b #30-52", phone_number: "2592338")
+Supplier.create(name: "Frivo", address:	"Cra 78 #44 - 110", phone_number: "3333333")
+Supplier.create(name: "Jet", address:	"Cra 32 # 33-33", phone_number: "2212222")
+Supplier.create(name: "Juan Valdes", address:	"Cra 44 # 44-44", phone_number: "2222222")
+Supplier.create(name: "Margarita", address:	"Cll 10 #34-45", phone_number: "4444482")
+Supplier.create(name: "Postobon", address:	"Circular 4 # 46 78", phone_number: "4444444")
+Supplier.create(name: "Super", address:	"Cra 45 #34 - 34", phone_number: "2235466")
+Supplier.create(name: "Wonka", address:	"Calle 55 #40-85", phone_number: "2170823")
+Supplier.create(name: "Zenu", address:	"Cra 45 #34 - 3444", phone_number: "2212221")
+
+Product.create(name: "Té ", price:  1000, quantity: 20, image: File.open(File.join(Rails.root, 'public/limon.jpg')), category_id: 2, supplier_id:3)
+Product.create(name: "Pera", price:  1000, quantity: 20, image: File.open(File.join(Rails.root, 'public/limon.jpg')), category_id: 2, supplier_id:3)
+Product.create(name: "Sopa (Porción)", price:  1000, quantity: 20, image: File.open(File.join(Rails.root, 'public/limon.jpg')), category_id: 2, supplier_id:3)
+Product.create(name: "Tinto", price:  1000, quantity: 20, image: File.open(File.join(Rails.root, 'public/limon.jpg')), category_id: 2, supplier_id:3)
+Product.create(name: "Uvas", price:  1200, quantity: 20, image: File.open(File.join(Rails.root, 'public/limon.jpg')), category_id: 2, supplier_id:3)
+Product.create(name: "Pastel de pollo", price:  1500, quantity: 20, image: File.open(File.join(Rails.root, 'public/limon.jpg')), category_id: 2, supplier_id:3)
+Product.create(name: "Trululu Sabores", price:  1500, quantity: 20, image: File.open(File.join(Rails.root, 'public/limon.jpg')), category_id: 2, supplier_id:3)
+Product.create(name: "Palito de queso", price:  1500, quantity: 20, image: File.open(File.join(Rails.root, 'public/limon.jpg')), category_id: 2, supplier_id:3)
+Product.create(name: "Jumbo", price:  1700, quantity: 20, image: File.open(File.join(Rails.root, 'public/limon.jpg')), category_id: 2, supplier_id:3)
+Product.create(name: "Manzana", price:  1800, quantity: 20, image: File.open(File.join(Rails.root, 'public/limon.jpg')), category_id: 2, supplier_id:3)
+Product.create(name: "Skittles", price:  1800, quantity: 20, image: File.open(File.join(Rails.root, 'public/limon.jpg')), category_id: 2, supplier_id:3)
+Product.create(name: "Rodajas de piña", price:  1800, quantity: 20, image: File.open(File.join(Rails.root, 'public/limon.jpg')), category_id: 2, supplier_id:3)
+Product.create(name: "Del Valle Fresh", price:  2000, quantity: 20, image: File.open(File.join(Rails.root, 'public/limon.jpg')), category_id: 2, supplier_id:3)
+Product.create(name: "Sr. Toronjo", price:  2000, quantity: 20, image: File.open(File.join(Rails.root, 'public/limon.jpg')), category_id: 2, supplier_id:3)
+Product.create(name: "Cereal con Yogurt", price:  2000, quantity: 20, image: File.open(File.join(Rails.root, 'public/limon.jpg')), category_id: 2, supplier_id:3)
+Product.create(name: "Chepe Patatas", price:  2000, quantity: 20, image: File.open(File.join(Rails.root, 'public/limon.jpg')), category_id: 2, supplier_id:3)
+Product.create(name: "Paleta Dracula", price:  2000, quantity: 20, image: File.open(File.join(Rails.root, 'public/limon.jpg')), category_id: 2, supplier_id:3)
+Product.create(name: "Papas Paquete", price:  2000, quantity: 20, image: File.open(File.join(Rails.root, 'public/limon.jpg')), category_id: 2, supplier_id:3)
+Product.create(name: "Nerds", price:  2000, quantity: 20, image: File.open(File.join(Rails.root, 'public/limon.jpg')), category_id: 2, supplier_id:3)
+Product.create(name: "Mango", price:  2500, quantity: 20, image: File.open(File.join(Rails.root, 'public/limon.jpg')), category_id: 2, supplier_id:3)
+Product.create(name: "Coca_cola", price:  3000, quantity: 20, image: File.open(File.join(Rails.root, 'public/limon.jpg')), category_id: 2, supplier_id:3)
+Product.create(name: "Salpicon", price:  3000, quantity: 20, image: File.open(File.join(Rails.root, 'public/limon.jpg')), category_id: 2, supplier_id:3)
+Product.create(name: "Salchipapas", price:  3000, quantity: 20, image: File.open(File.join(Rails.root, 'public/limon.jpg')), category_id: 2, supplier_id:3)
+Product.create(name: "Ensalada", price:  5000, quantity: 20, image: File.open(File.join(Rails.root, 'public/limon.jpg')), category_id: 2, supplier_id:3)
+Product.create(name: "Cazuela", price:  7000, quantity: 20, image: File.open(File.join(Rails.root, 'public/limon.jpg')), category_id: 2, supplier_id:3)
+Product.create(name: "Quesadilla", price:  7000, quantity: 20, image: File.open(File.join(Rails.root, 'public/limon.jpg')), category_id: 2, supplier_id:3)
+Product.create(name: "Pollo Asado", price:  7000, quantity: 20, image: File.open(File.join(Rails.root, 'public/limon.jpg')), category_id: 2, supplier_id:3)
+Product.create(name: "Bandeja Paisa", price:  8000, quantity: 20, image: File.open(File.join(Rails.root, 'public/limon.jpg')), category_id: 2, supplier_id:3)
