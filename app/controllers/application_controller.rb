@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
 
   def find_categories
     @categories = Category.all
+    @count = Product.count
   end
   def find_suppliers
     @suppliers = Supplier.all

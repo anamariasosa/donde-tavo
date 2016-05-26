@@ -1,10 +1,12 @@
 <% if  @cart %>
-<p>
   <% if  @cart.empty? %>
-    Carro vacío
+    <a href="/">
+      <span class="glyphicon glyphicon-shopping-cart"> 0
+    </a>
     <% else %>
-    <%= link_to "Tienes
-     #{pluralize @cart.count, "producto"} ", cart_path %>
+    <%= link_to cart_path  do%>
+      <span class="glyphicon glyphicon-shopping-cart">
+      <%= @cart.count %>
+    <% end %>
   <% end %>
-</p>
 <% end %>

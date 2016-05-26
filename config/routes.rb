@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :suppliers
+
   resources :categories
   resources :products
   # The priority is based upon order of creation: first created -> highest priority.

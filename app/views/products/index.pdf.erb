@@ -1,39 +1,56 @@
-<h1>Listing Products</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Price</th>
-      <th>Image</th>
-      <th>Quantity</th>
-      <th>Category</th>
-      <th>Supplier</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @products.each do |product| %>
+<h1>Productos Disponibles</h1>
+<% if @products.count == 0 %>
+  <div class="alert alert-danger" role="alert">
+    <p>
+      No hay productos disponibles
+    </p>
+  </div>
+<% else %>
+  <table class="table table-striped">
+    <thead>
       <tr>
-        <td><%= product.name %></td>
-        <td><%= number_to_currency(product.price, precision: 0)%></td>
-        <td><%= wicked_pdf_image_tag product.image.thumb %></td>
-        <td><%=  product.quantity %></td>
-        <td> <%= product.category.name  %> </td>
-        <td> <%= product.supplier.name  %> </td>
-
+        <th>Nombre</th>
+        <th>Imagen</th>
+        <th>Precio</th>
+        <th>Cantidad</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @products.each do |product| %>
+      <tr>
+        <td>
+          <%= product.name %>
+        </td>
+        <td>
+          <%= wicked_pdf_image_tag product.image.thumb, class:"image_pdf"  %>
+        </td>
+        <td>
+          <%= number_to_currency(product.price, precision: 0)%>
+        </td>
+        <td>
+          <%= product.quantity %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+</div>
 
-
-<table>
+<h1>Productos Eliminados</h1>
+<% if @histories.count == 0 %>
+  <div class="alert alert-danger" role="alert">
+    <p>
+      No hay productos eliminados
+    </p>
+  </div>
+<% else %>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Name</th>
+      <th>Nombre</th>
       <th>Proveedor</th>
-      <th>Telefono provedor</th>
+      <th>Teléfono provedor</th>
     </tr>
   </thead>
 
@@ -43,8 +60,8 @@
         <td><%= history.product_name %></td>
         <td> <%= history.supplier_name  %> </td>
         <td> <%= history.supplier_phone  %> </td>
-
       </tr>
     <% end %>
   </tbody>
 </table>
+<% end %>
