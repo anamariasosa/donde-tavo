@@ -1,38 +1,45 @@
-<p>
 
-  <%= image_tag @product.image.thumb %>
-</p>
-<p>
-  <strong>Name:</strong>
-  <%= @product.name %>
-</p>
+<div class="row product_container">
+  <div class="col-md-6 col-lg-6 col-xs-12 text-center product_image">
+    <%= image_tag @product.image , class:"img-thumbnail"%>
 
-<p>
-  <strong>Price:</strong>
-  <%= @product.price %>
-</p>
+  </div>
+  <div class="col-md-6 col-lg-6 col-xs-12 product_description">
+    <h3 class="text-center"><%= @product.name %>
+      <% if current_user && current_user.admin? %>
+      <%= link_to edit_product_path(@product) do %>
+         <span class="glyphicon glyphicon-pencil "></span>
+      <% end %>
+      <% else %>
+        <%= link_to add_cart_path, method: :post do %>
+           <span class="glyphicon glyphicon-shopping-cart "></span>
+        <% end %>
+      <% end %>
+    </h3>
+    <p>
+      <strong>Precio:</strong>
+      <%= number_to_currency(@product.price, precision:0) %>
+    </p>
+    <p>
+    <strong>Cantidad:</strong>
+    <%= @product.quantity  %>
+    </p>
+    <p>
+      <strong>Categoría:</strong>
+      <% if @product.category %>
+        <%= link_to @product.category.name, @product.category %>
+        <% else %>
+        Sin Categoría
+      <% end %>
+    </p>
+    <% if current_user && current_user.admin? %>
+    <p>
+      <strong>Proveedor:</strong>
+      <%= link_to @product.supplier.name, @product.supplier %>
+    </p>
+    <% end %>
+  </div>
+</div>
 
-<p>
-  <strong>Quantity:</strong>
-  <%= @product.quantity  %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= link_to @product.category.name, @product.category %>
-</p>
-<% if current_user && current_user.admin? %>
-<p>
-  <strong>Supplier:</strong>
-  <%= link_to @product.supplier.name, @product.supplier %>
-</p>
-<% end %>
-
-
-<% if current_user && current_user.admin? %>
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<% end %>
-<%= link_to 'Back', products_path %>
-<% if @product.quantity > 0 %>
-  <%= link_to 'Add to cart', add_cart_path, method: :post %>
-<% end %>
+<br>
+<%= link_to 'Atrás', products_path %>
