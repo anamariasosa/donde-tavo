@@ -13,3 +13,9 @@
     margin-top: 15px;
   }
 }
+.thumbnail {
+  & img {
+    width: 100px;
+    height: 100px;
+  }
+}
