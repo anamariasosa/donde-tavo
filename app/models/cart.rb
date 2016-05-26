@@ -49,7 +49,7 @@ class Cart < ActiveRecord::Base
 
   def total_price
     if Product.count > 0
-      @items.inject(0) { |sum, item| sum + item.total_price }
+    @items.inject(0) { |sum, item| sum + item.total_price }
     end
   end
 end

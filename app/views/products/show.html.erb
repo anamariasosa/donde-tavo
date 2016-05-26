@@ -11,9 +11,13 @@
          <span class="glyphicon glyphicon-pencil "></span>
       <% end %>
       <% else %>
-        <%= link_to add_cart_path, method: :post do %>
-           <span class="glyphicon glyphicon-shopping-cart "></span>
-        <% end %>
+      <% if @product.quantity > 0 %>
+      <%= link_to add_cart_path, method: :post do %>
+         <span class="glyphicon glyphicon-shopping-cart "></span>
+      <% end %>
+      <% end %>
+
+
       <% end %>
     </h3>
     <p>

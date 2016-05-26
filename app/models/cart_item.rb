@@ -1,4 +1,5 @@
 class CartItem < ActiveRecord::Base
+
   attr_reader :product_id, :quantity
 
   def initialize product_id, quantity = 1
@@ -11,14 +12,10 @@ class CartItem < ActiveRecord::Base
   end
 
   def product
-    if Product.count > 0
-      Product.find product_id
-    end
+    Product.find product_id
   end
 
   def total_price
-    if Product.count > 0
-      product.price * quantity
-    end
+    product.price * quantity
   end
 end
