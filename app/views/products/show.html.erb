@@ -39,7 +39,11 @@
     <% if current_user && current_user.admin? %>
     <p>
       <strong>Proveedor:</strong>
+      <% if @product.supplier %>
       <%= link_to @product.supplier.name, @product.supplier %>
+      <% else %>
+        Sin proveedor
+      <% end %>
     </p>
     <% end %>
   </div>
