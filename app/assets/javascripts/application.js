@@ -15,6 +15,19 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-$('.disabled').on('click', function(e) {
-  e.preventDefault();
+
+$(document).on('ready page:change page:load', function() {
+  $('.disabled').on('click', function(event) {
+    event.preventDefault();
+  });
+  $('.list-group-item').removeClass('active')
+  if ($('.category_name').text().trim().length > 0) {
+    $( ".list-group-item:contains("
+    + $('.category_name').text().trim()
+    +")" )
+    .addClass('active');
+  }
+
+
+
 });
