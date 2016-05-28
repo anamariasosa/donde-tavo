@@ -15,8 +15,11 @@ class Product < ActiveRecord::Base
 
   def dont_add_products_on_sunday
     t = Time.new
-    if t.saturday? || t.sunday?
-      errors.add(:error, ": No puede añadir productos los fines de semana")
+    # if t.saturday? || t.sunday?
+    #   errors.add(:error, ": No puede añadir productos los fines de semana")
+    # end
+    if t.wednesday?
+      errors.add(:error, ": No puede añadir productos los miércoles")
     end
   end
 
